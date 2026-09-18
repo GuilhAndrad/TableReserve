@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TableReserve.Domain.Enums;
+﻿using TableReserve.Domain.Enums;
 
 namespace TableReserve.Domain.Entities;
 

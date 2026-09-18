@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TableReserve.Domain.Entities;
+﻿namespace TableReserve.Domain.Entities;
 
 public abstract class EntityBase
 {
