@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/back/">
+    <Project Path="src/back/TableReserve.API/TableReserve.API.csproj" />
+    <Project Path="src/back/TableReserve.Application/TableReserve.Application.csproj" />
+    <Project Path="src/back/TableReserve.Domain/TableReserve.Domain.csproj" />
+    <Project Path="src/back/TableReserve.Infrastructure/TableReserve.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/shared/">
+    <Project Path="src/shared/TableReserve.Communication/TableReserve.Communication.csproj" Id="a968fcfe-6345-4b98-9660-1e569815aa09" />
+    <Project Path="src/shared/TableReserve.Exception/TableReserve.Exception.csproj" Id="f1f44be6-6976-4e11-a443-345179902d0f" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
