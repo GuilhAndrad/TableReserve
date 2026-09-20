@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TableReserve.Infrastructure.Migrations;
 
-internal class DatabaseMigration
+public class DatabaseMigration
 {
     public static void RunnerMigrations(IServiceProvider serviceProvider)
     {
