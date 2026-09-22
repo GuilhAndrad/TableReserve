@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMAIL_INVALID_VALIDATION" xml:space="preserve">
+    <value>Email is invalid</value>
+  </data>
   <data name="LOGIN_INVALID_VALIDATION" xml:space="preserve">
     <value>Invalid email or password</value>
+  </data>
+  <data name="NAME_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="NAME_MAX_LENGTH_VALIDATION" xml:space="preserve">
+    <value>Name cannot exceed 250 characters</value>
+  </data>
+  <data name="NAME_MIN_LENGTH_VALIDATION" xml:space="preserve">
+    <value>Name must be at least 3 characters long</value>
+  </data>
+  <data name="EMAIL_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>Email is required</value>
+  </data>
+  <data name="PASSWORD_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="PASSWORD_MIN_LENGTH_VALIDATION" xml:space="preserve">
+    <value>Password must be at least 8 characters long</value>
+  </data>
+  <data name="PASSWORD_MAX_LENGTH_VALIDATION" xml:space="preserve">
+    <value>Password cannot exceed 255 characters</value>
+  </data>
+  <data name="PASSWORD_UPPERCASE_VALIDATION" xml:space="preserve">
+    <value>Password must contain at least one uppercase letter</value>
+  </data>
+  <data name="PASSWORD_LOWERCASE_VALIDATION" xml:space="preserve">
+    <value>Password must contain at least one lowercase letter</value>
+  </data>
+  <data name="PASSWORD_NUMBER_VALIDATION" xml:space="preserve">
+    <value>Password must contain at least one number</value>
+  </data>
+  <data name="PASSWORD_SPECIAL_CHAR_VALIDATION" xml:space="preserve">
+    <value>Password must contain at least one special character</value>
   </data>
 </root>

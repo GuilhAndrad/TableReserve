@@ -61,11 +61,119 @@ namespace TableReserve.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email is invalid.
+        /// </summary>
+        public static string EMAIL_INVALID_VALIDATION {
+            get {
+                return ResourceManager.GetString("EMAIL_INVALID_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email is required.
+        /// </summary>
+        public static string EMAIL_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("EMAIL_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid email or password.
         /// </summary>
         public static string LOGIN_INVALID_VALIDATION {
             get {
                 return ResourceManager.GetString("LOGIN_INVALID_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name cannot exceed 250 characters.
+        /// </summary>
+        public static string NAME_MAX_LENGTH_VALIDATION {
+            get {
+                return ResourceManager.GetString("NAME_MAX_LENGTH_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name must be at least 3 characters long.
+        /// </summary>
+        public static string NAME_MIN_LENGTH_VALIDATION {
+            get {
+                return ResourceManager.GetString("NAME_MIN_LENGTH_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name is required.
+        /// </summary>
+        public static string NAME_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("NAME_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password must contain at least one lowercase letter.
+        /// </summary>
+        public static string PASSWORD_LOWERCASE_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_LOWERCASE_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password cannot exceed 255 characters.
+        /// </summary>
+        public static string PASSWORD_MAX_LENGTH_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_MAX_LENGTH_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password must be at least 8 characters long.
+        /// </summary>
+        public static string PASSWORD_MIN_LENGTH_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_MIN_LENGTH_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password must contain at least one number.
+        /// </summary>
+        public static string PASSWORD_NUMBER_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_NUMBER_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password is required.
+        /// </summary>
+        public static string PASSWORD_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password must contain at least one special character.
+        /// </summary>
+        public static string PASSWORD_SPECIAL_CHAR_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_SPECIAL_CHAR_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password must contain at least one uppercase letter.
+        /// </summary>
+        public static string PASSWORD_UPPERCASE_VALIDATION {
+            get {
+                return ResourceManager.GetString("PASSWORD_UPPERCASE_VALIDATION", resourceCulture);
             }
         }
     }
