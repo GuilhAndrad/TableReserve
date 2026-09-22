@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\TableReserve.Communication\TableReserve.Communication.csproj" />
+    <ProjectReference Include="..\..\shared\TableReserve.Exception\TableReserve.Exception.csproj" />
+    <ProjectReference Include="..\TableReserve.Domain\TableReserve.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
