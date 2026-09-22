@@ -1,4 +1,4 @@
-﻿namespace TableReserve.Communication.Requests;
+﻿namespace TableReserve.Communication.Responses;
 
 public class TokensResponse
 {
