@@ -60,9 +60,17 @@ public static class DependencyInjectionExtension
             services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
             services.AddScoped<IAccessTokenGenerator>(provider =>
             {
-                uint tokenExpirationInMinutes = configuration.GetValue<uint>("Security:TokenExpirationInMinutes");
-                string secretKey = configuration.GetValue<string>("Security:SecretKey")!;
-                return new JwtTokenHandler(tokenExpirationInMinutes, secretKey);
+                uint tokenExpirationInMinutes =
+                    configuration.GetValue<uint>("Jwt:ExpirationTimeMinutes");
+
+                string secretKey =
+                    configuration.GetValue<string>("Jwt:SigningKey")
+                    ?? throw new InvalidOperationException(
+                        "JWT signing key is not configured.");
+
+                return new JwtTokenHandler(
+                    tokenExpirationInMinutes,
+                    secretKey);
             });
         }
     }
