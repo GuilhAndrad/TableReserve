@@ -61,6 +61,24 @@ namespace TableReserve.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a You don’t have access to this resource.
+        /// </summary>
+        public static string ACCESS_DENIED_VALIDATION {
+            get {
+                return ResourceManager.GetString("ACCESS_DENIED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This request needs an access token.
+        /// </summary>
+        public static string ACCESS_TOKEN_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("ACCESS_TOKEN_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email is invalid.
         /// </summary>
         public static string EMAIL_INVALID_VALIDATION {
@@ -174,6 +192,15 @@ namespace TableReserve.Exception {
         public static string PASSWORD_UPPERCASE_VALIDATION {
             get {
                 return ResourceManager.GetString("PASSWORD_UPPERCASE_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Internal error.
+        /// </summary>
+        public static string UNKNOWN_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
             }
         }
     }

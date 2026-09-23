@@ -156,4 +156,13 @@
   <data name="PASSWORD_SPECIAL_CHAR_VALIDATION" xml:space="preserve">
     <value>Password must contain at least one special character</value>
   </data>
+  <data name="UNKNOWN_ERROR" xml:space="preserve">
+    <value>Internal error</value>
+  </data>
+  <data name="ACCESS_TOKEN_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>This request needs an access token</value>
+  </data>
+  <data name="ACCESS_DENIED_VALIDATION" xml:space="preserve">
+    <value>You don’t have access to this resource</value>
+  </data>
 </root>
