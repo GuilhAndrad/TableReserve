@@ -7,14 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\shared\TableReserve.Communication\TableReserve.Communication.csproj" />
+    <ProjectReference Include="..\..\shared\TableReserve.Exception\TableReserve.Exception.csproj" />
+    <ProjectReference Include="..\TableReserve.Application\TableReserve.Application.csproj" />
     <ProjectReference Include="..\TableReserve.Infrastructure\TableReserve.Infrastructure.csproj" />
   </ItemGroup>
 
