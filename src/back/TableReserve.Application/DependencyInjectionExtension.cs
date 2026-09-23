@@ -16,5 +16,6 @@ public static class DependencyInjectionExtension
     {
         services.AddScoped<UseCases.User.RegisterAccount.IRegisterUser, UseCases.User.RegisterAccount.RegisterUser>();
         services.AddScoped<UseCases.User.Login.ILoginUser, UseCases.User.Login.LoginUser>();
+        services.AddScoped<UseCases.User.GetUser.IGetUser, UseCases.User.GetUser.GetUser>();
     }
 }
