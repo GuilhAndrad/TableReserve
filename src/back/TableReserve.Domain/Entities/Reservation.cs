@@ -2,7 +2,7 @@
 
 namespace TableReserve.Domain.Entities;
 
-public class Reservation
+public class Reservation : EntityBase
 {
     public Guid UserId { get; set; }
     public Guid TableId { get; set; }
