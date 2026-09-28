@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using TableReserve.Domain.Repositories;
+using TableReserve.Domain.Repositories.Reservation;
+using TableReserve.Domain.Repositories.Table;
 using TableReserve.Domain.Repositories.User;
 using TableReserve.Domain.Security.PasswordHashing;
 using TableReserve.Domain.Security.Tokens;
@@ -53,6 +55,10 @@ public static class DependencyInjectionExtension
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserWriter, UserRepository>();
             services.AddScoped<IUserReader, UserRepository>();
+            services.AddScoped<ITableWriter, TableRepository>();
+            services.AddScoped<ITableReader, TableRepository>();
+            services.AddScoped<IReservationWriter, ReservationRepository>();
+            services.AddScoped<IReservationReader, ReservationRepository>();
         }
 
         private void AddSecurity(IConfiguration configuration)
