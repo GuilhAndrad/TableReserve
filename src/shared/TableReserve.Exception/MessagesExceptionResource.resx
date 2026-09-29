@@ -165,4 +165,40 @@
   <data name="ACCESS_DENIED_VALIDATION" xml:space="preserve">
     <value>You don’t have access to this resource</value>
   </data>
+  <data name="TABLE_CAPACITY_MIN_VALIDATION" xml:space="preserve">
+    <value>Capacity must be at least 1</value>
+  </data>
+  <data name="TABLE_STATUS_INVALID_VALIDATION" xml:space="preserve">
+    <value>Status is invalid. Valid values: Available, Reserved, Inactive</value>
+  </data>
+  <data name="RESERVATION_DATE_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>Reservation date is required</value>
+  </data>
+  <data name="RESERVATION_DATE_FUTURE_VALIDATION" xml:space="preserve">
+    <value>Reservation date must be in the future</value>
+  </data>
+  <data name="RESERVATION_OUTSIDE_BUSINESS_HOURS_VALIDATION" xml:space="preserve">
+    <value>Reservation must be within the restaurant's business hours (08:00-23:00)</value>
+  </data>
+  <data name="RESERVATION_GUESTS_REQUIRED_VALIDATION" xml:space="preserve">
+    <value>Number of guests is required</value>
+  </data>
+  <data name="TABLE_UNAVAILABLE_VALIDATION" xml:space="preserve">
+    <value>Table is not available for reservations</value>
+  </data>
+  <data name="TABLE_NOT_FOUND_VALIDATION" xml:space="preserve">
+    <value> Table not found</value>
+  </data>
+  <data name="TABLE_CAPACITY_EXCEEDED_VALIDATION" xml:space="preserve">
+    <value>Number of guests exceeds table capacity</value>
+  </data>
+  <data name="RESERVATION_NOT_FOUND_VALIDATION" xml:space="preserve">
+    <value>Reservation not found</value>
+  </data>
+  <data name="RESERVATION_ALREADY_CANCELLED_VALIDATION" xml:space="preserve">
+    <value>Reservation is already cancelled</value>
+  </data>
+  <data name="RESERVATION_TABLE_UNAVAILABLE_VALIDATION" xml:space="preserve">
+    <value>Table is already booked for the requested time</value>
+  </data>
 </root>

@@ -196,6 +196,114 @@ namespace TableReserve.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation is already cancelled.
+        /// </summary>
+        public static string RESERVATION_ALREADY_CANCELLED_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_ALREADY_CANCELLED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation date must be in the future.
+        /// </summary>
+        public static string RESERVATION_DATE_FUTURE_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_DATE_FUTURE_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation date is required.
+        /// </summary>
+        public static string RESERVATION_DATE_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_DATE_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Number of guests is required.
+        /// </summary>
+        public static string RESERVATION_GUESTS_REQUIRED_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_GUESTS_REQUIRED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation not found.
+        /// </summary>
+        public static string RESERVATION_NOT_FOUND_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_NOT_FOUND_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation must be within the restaurant&apos;s business hours (08:00-23:00).
+        /// </summary>
+        public static string RESERVATION_OUTSIDE_BUSINESS_HOURS_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_OUTSIDE_BUSINESS_HOURS_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Table is already booked for the requested time.
+        /// </summary>
+        public static string RESERVATION_TABLE_UNAVAILABLE_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_TABLE_UNAVAILABLE_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Number of guests exceeds table capacity.
+        /// </summary>
+        public static string TABLE_CAPACITY_EXCEEDED_VALIDATION {
+            get {
+                return ResourceManager.GetString("TABLE_CAPACITY_EXCEEDED_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Capacity must be at least 1.
+        /// </summary>
+        public static string TABLE_CAPACITY_MIN_VALIDATION {
+            get {
+                return ResourceManager.GetString("TABLE_CAPACITY_MIN_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a  Table not found.
+        /// </summary>
+        public static string TABLE_NOT_FOUND_VALIDATION {
+            get {
+                return ResourceManager.GetString("TABLE_NOT_FOUND_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Status is invalid. Valid values: Available, Reserved, Inactive.
+        /// </summary>
+        public static string TABLE_STATUS_INVALID_VALIDATION {
+            get {
+                return ResourceManager.GetString("TABLE_STATUS_INVALID_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Table is not available for reservations.
+        /// </summary>
+        public static string TABLE_UNAVAILABLE_VALIDATION {
+            get {
+                return ResourceManager.GetString("TABLE_UNAVAILABLE_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Internal error.
         /// </summary>
         public static string UNKNOWN_ERROR {
