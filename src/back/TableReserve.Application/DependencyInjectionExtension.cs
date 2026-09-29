@@ -17,5 +17,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<UseCases.User.RegisterAccount.IRegisterUser, UseCases.User.RegisterAccount.RegisterUser>();
         services.AddScoped<UseCases.User.Login.ILoginUser, UseCases.User.Login.LoginUser>();
         services.AddScoped<UseCases.User.GetUser.IGetUser, UseCases.User.GetUser.GetUser>();
+        services.AddScoped<UseCases.Table.CreateTable.ICreateTable, UseCases.Table.CreateTable.CreateTable>();
+        services.AddScoped<UseCases.Table.ListTables.IListTables, UseCases.Table.ListTables.ListTables>();
+        services.AddScoped<UseCases.Table.UpdateTable.IUpdateTable, UseCases.Table.UpdateTable.UpdateTable>();
     }
 }
