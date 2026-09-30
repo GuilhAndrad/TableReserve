@@ -20,5 +20,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<UseCases.Table.CreateTable.ICreateTable, UseCases.Table.CreateTable.CreateTable>();
         services.AddScoped<UseCases.Table.ListTables.IListTables, UseCases.Table.ListTables.ListTables>();
         services.AddScoped<UseCases.Table.UpdateTable.IUpdateTable, UseCases.Table.UpdateTable.UpdateTable>();
+        services.AddScoped<UseCases.Reservation.CreateReservation.ICreateReservation, UseCases.Reservation.CreateReservation.CreateReservation>();
+        services.AddScoped<UseCases.Reservation.ListReservations.IListReservations, UseCases.Reservation.ListReservations.ListReservations>();
+        services.AddScoped<UseCases.Reservation.CancelReservation.ICancelReservation, UseCases.Reservation.CancelReservation.CancelReservation>();
     }
 }
