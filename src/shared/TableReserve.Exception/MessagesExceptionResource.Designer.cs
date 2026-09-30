@@ -223,6 +223,15 @@ namespace TableReserve.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Duration must be between 20 and 120 minutes, in steps of 20 (20, 40, 60, 80, 100, 120).
+        /// </summary>
+        public static string RESERVATION_DURATION_INVALID_VALIDATION {
+            get {
+                return ResourceManager.GetString("RESERVATION_DURATION_INVALID_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Number of guests is required.
         /// </summary>
         public static string RESERVATION_GUESTS_REQUIRED_VALIDATION {
