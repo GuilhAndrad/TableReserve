@@ -4,5 +4,7 @@ public class CreateReservationRequest
 {
     public Guid TableId { get; set; }
     public DateTime ReservationDate { get; set; }
+    public int DurationMinutes { get; set; }
     public int GuestsCount { get; set; }
+    
 }
