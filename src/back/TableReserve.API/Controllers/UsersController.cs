@@ -11,7 +11,7 @@ namespace TableReserve.API.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    [HttpPost]
+    [HttpPost("register")]
     [ProducesResponseType(typeof(RegisteredUserResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register(
@@ -23,7 +23,7 @@ public class UsersController : ControllerBase
         return Created(string.Empty, result);
     }
 
-    [HttpGet]
+    [HttpGet("me")]
     [Authorize]
     [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetUserProfile([FromServices] IGetUser useCase, CancellationToken cancellationToken)

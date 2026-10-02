@@ -13,7 +13,7 @@ namespace TableReserve.API.Controllers;
 [Authorize]
 public class ReservationsController : ControllerBase
 {
-    [HttpPost]
+    [HttpPost("register")]
     [ProducesResponseType(typeof(ReservationResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]

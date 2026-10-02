@@ -22,7 +22,7 @@ public class TablesController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost]
+    [HttpPost("register")]
     [ProducesResponseType(typeof(TableResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status403Forbidden)]
