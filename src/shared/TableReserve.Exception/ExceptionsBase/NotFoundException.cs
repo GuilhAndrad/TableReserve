@@ -5,10 +5,10 @@ using System.Text;
 
 namespace TableReserve.Exception.ExceptionsBase;
 
-public class NotFoundException : TableReserveException
+public class NotFoundException(string message) : TableReserveException
 {
-    private readonly string _message;
-    public NotFoundException(string message) => _message = message;
+    private readonly string _message = message;
+
     public override List<string> GetErrorMessages() => [_message];
 
     public override int StatusCode() => (int)HttpStatusCode.NotFound;
