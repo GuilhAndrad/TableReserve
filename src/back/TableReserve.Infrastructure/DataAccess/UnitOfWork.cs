@@ -2,9 +2,9 @@
 
 namespace TableReserve.Infrastructure.DataAccess;
 
-internal class UnitOfWork : IUnitOfWork
+internal class UnitOfWork(TableReserveDbContext dbContext) : IUnitOfWork
 {
-    private readonly TableReserveDbContext _dbContext;
-    public UnitOfWork(TableReserveDbContext dbContext) => _dbContext = dbContext;
+    private readonly TableReserveDbContext _dbContext = dbContext;
+
     public async Task Commit(CancellationToken cancellationToken) => await _dbContext.SaveChangesAsync(cancellationToken);
 }
