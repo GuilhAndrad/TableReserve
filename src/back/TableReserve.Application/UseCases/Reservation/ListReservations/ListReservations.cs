@@ -5,16 +5,10 @@ using TableReserve.Domain.Repositories.User;
 
 namespace TableReserve.Application.UseCases.Reservation.ListReservations;
 
-public class ListReservations : IListReservations
+public class ListReservations(ILoggedUser loggedUser, IReservationReader reservationReader) : IListReservations
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly IReservationReader _reservationReader;
-
-    public ListReservations(ILoggedUser loggedUser, IReservationReader reservationReader)
-    {
-        _loggedUser = loggedUser;
-        _reservationReader = reservationReader;
-    }
+    private readonly ILoggedUser _loggedUser = loggedUser;
+    private readonly IReservationReader _reservationReader = reservationReader;
 
     public async Task<List<ReservationResponse>> Execute(CancellationToken cancellationToken)
     {

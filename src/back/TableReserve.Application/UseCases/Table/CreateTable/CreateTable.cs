@@ -9,18 +9,11 @@ using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.Table.CreateTable;
 
-public class CreateTable : ICreateTable
+public class CreateTable(ILoggedUser loggedUser, ITableWriter tableWriter, IUnitOfWork unitOfWork) : ICreateTable
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly ITableWriter _tableWriter;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateTable(ILoggedUser loggedUser, ITableWriter tableWriter, IUnitOfWork unitOfWork)
-    {
-        _loggedUser = loggedUser;
-        _tableWriter = tableWriter;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly ILoggedUser _loggedUser = loggedUser;
+    private readonly ITableWriter _tableWriter = tableWriter;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<TableResponse> Execute(CreateTableRequest request, CancellationToken cancellationToken)
     {
@@ -30,11 +23,7 @@ public class CreateTable : ICreateTable
 
         Validate(request);
 
-        var table = new Domain.Entities.Table
-        {
-            Name = request.Name,
-            Capacity = request.Capacity
-        };
+        var table = request.Adapt<Domain.Entities.Table>();
 
         await _tableWriter.Add(table, cancellationToken);
 

@@ -11,27 +11,18 @@ using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.Reservation.CreateReservation;
 
-public class CreateReservation : ICreateReservation
+public class CreateReservation(
+    ILoggedUser loggedUser,
+    ITableReader tableReader,
+    IReservationReader reservationReader,
+    IReservationWriter reservationWriter,
+    IUnitOfWork unitOfWork) : ICreateReservation
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly ITableReader _tableReader;
-    private readonly IReservationReader _reservationReader;
-    private readonly IReservationWriter _reservationWriter;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateReservation(
-        ILoggedUser loggedUser,
-        ITableReader tableReader,
-        IReservationReader reservationReader,
-        IReservationWriter reservationWriter,
-        IUnitOfWork unitOfWork)
-    {
-        _loggedUser = loggedUser;
-        _tableReader = tableReader;
-        _reservationReader = reservationReader;
-        _reservationWriter = reservationWriter;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly ILoggedUser _loggedUser = loggedUser;
+    private readonly ITableReader _tableReader = tableReader;
+    private readonly IReservationReader _reservationReader = reservationReader;
+    private readonly IReservationWriter _reservationWriter = reservationWriter;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<ReservationResponse> Execute(CreateReservationRequest request, CancellationToken cancellationToken)
     {
@@ -54,14 +45,8 @@ public class CreateReservation : ICreateReservation
         if (hasOverlap)
             throw new ValidationException([MessagesExceptionResource.RESERVATION_TABLE_UNAVAILABLE_VALIDATION]);
 
-        var reservation = new Domain.Entities.Reservation
-        {
-            UserId = _loggedUser.GetUserId(),
-            TableId = request.TableId,
-            ReservationDate = request.ReservationDate,
-            DurationMinutes = request.DurationMinutes,
-            GuestsCount = request.GuestsCount
-        };
+        var reservation = request.Adapt<Domain.Entities.Reservation>();
+        reservation.UserId = _loggedUser.GetUserId();
 
         await _reservationWriter.Add(reservation, cancellationToken);
 

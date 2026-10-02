@@ -7,18 +7,11 @@ using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.Reservation.CancelReservation;
 
-public class CancelReservation : ICancelReservation
+public class CancelReservation(ILoggedUser loggedUser, IReservationReader reservationReader, IUnitOfWork unitOfWork) : ICancelReservation
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly IReservationReader _reservationReader;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CancelReservation(ILoggedUser loggedUser, IReservationReader reservationReader, IUnitOfWork unitOfWork)
-    {
-        _loggedUser = loggedUser;
-        _reservationReader = reservationReader;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly ILoggedUser _loggedUser = loggedUser;
+    private readonly IReservationReader _reservationReader = reservationReader;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task Execute(Guid id, CancellationToken cancellationToken)
     {

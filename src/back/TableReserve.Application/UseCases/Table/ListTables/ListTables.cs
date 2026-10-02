@@ -4,11 +4,9 @@ using TableReserve.Domain.Repositories.Table;
 
 namespace TableReserve.Application.UseCases.Table.ListTables;
 
-public class ListTables : IListTables
+public class ListTables(ITableReader tableReader) : IListTables
 {
-    private readonly ITableReader _tableReader;
-
-    public ListTables(ITableReader tableReader) => _tableReader = tableReader;
+    private readonly ITableReader _tableReader = tableReader;
 
     public async Task<List<TableResponse>> Execute(CancellationToken cancellationToken)
     {

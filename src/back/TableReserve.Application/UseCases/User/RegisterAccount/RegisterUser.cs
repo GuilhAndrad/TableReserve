@@ -11,32 +11,23 @@ using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.User.RegisterAccount;
 
-public class RegisterUser : IRegisterUser
+public class RegisterUser(
+    IPasswordHasher passwordHasher,
+    IUserWriter userWriter,
+    IUserReader userReader,
+    IAccessTokenGenerator accessTokenGenerator,
+    IUnitOfWork unitOfWork) : IRegisterUser
 {
-    private readonly IPasswordHasher _passwordHasher;
-    private readonly IUserWriter _userWriter;
-    private readonly IUserReader _userReader;
-    private readonly IAccessTokenGenerator _accessTokenGenerator;
+    private readonly IPasswordHasher _passwordHasher = passwordHasher;
+    private readonly IUserWriter _userWriter = userWriter;
+    private readonly IUserReader _userReader = userReader;
+    private readonly IAccessTokenGenerator _accessTokenGenerator = accessTokenGenerator;
 
-    private readonly IUnitOfWork _unitOfWork;
-
-    public RegisterUser(
-        IPasswordHasher passwordHasher,
-        IUserWriter userWriter,
-        IUserReader userReader,
-        IAccessTokenGenerator accessTokenGenerator,
-        IUnitOfWork unitOfWork)
-    {
-        _passwordHasher = passwordHasher;
-        _userWriter = userWriter;
-        _userReader = userReader;
-        _accessTokenGenerator = accessTokenGenerator;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<RegisteredUserResponse> Execute(RegisterUserRequest request, CancellationToken cancellationToken)
     {
-        await ValidateAndThrowOnFailures(request, cancellationToken);
+        await Validate(request, cancellationToken);
 
         var user = request.Adapt<Domain.Entities.User>();
 
@@ -56,7 +47,7 @@ public class RegisterUser : IRegisterUser
         };
     }
 
-    private async Task ValidateAndThrowOnFailures(RegisterUserRequest request, CancellationToken cancellationToken)
+    private async Task Validate(RegisterUserRequest request, CancellationToken cancellationToken)
     {
         var validator = new RegisterUserValidator();
 

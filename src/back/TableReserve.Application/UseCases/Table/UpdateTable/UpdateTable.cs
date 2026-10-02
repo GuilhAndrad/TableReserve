@@ -10,18 +10,11 @@ using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.Table.UpdateTable;
 
-public class UpdateTable : IUpdateTable
+public class UpdateTable(ILoggedUser loggedUser, ITableReader tableReader, IUnitOfWork unitOfWork) : IUpdateTable
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly ITableReader _tableReader;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public UpdateTable(ILoggedUser loggedUser, ITableReader tableReader, IUnitOfWork unitOfWork)
-    {
-        _loggedUser = loggedUser;
-        _tableReader = tableReader;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly ILoggedUser _loggedUser = loggedUser;
+    private readonly ITableReader _tableReader = tableReader;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<TableResponse> Execute(Guid id, UpdateTableRequest request, CancellationToken cancellationToken)
     {
@@ -34,9 +27,7 @@ public class UpdateTable : IUpdateTable
         var table = await _tableReader.GetById(id, cancellationToken)
             ?? throw new NotFoundException(MessagesExceptionResource.TABLE_NOT_FOUND_VALIDATION);
 
-        table.Name = request.Name;
-        table.Capacity = request.Capacity;
-        table.Status = request.Status.Adapt<Domain.Enums.TableStatus>();
+        request.Adapt(table);
 
         await _unitOfWork.Commit(cancellationToken);
 
