@@ -17,6 +17,7 @@ internal sealed class JwtTokenHandler(uint tokenExpirationInMinutes, string secr
         List<Claim> claims =
         [
             new (JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new (ClaimTypes.Role, user.Role.ToString()),
         ];
 
         var tokenDescriptor = new SecurityTokenDescriptor

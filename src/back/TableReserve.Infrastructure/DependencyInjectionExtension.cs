@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using TableReserve.Domain.Repositories;
+using TableReserve.Domain.Repositories.RefreshToken;
 using TableReserve.Domain.Repositories.Reservation;
 using TableReserve.Domain.Repositories.Table;
 using TableReserve.Domain.Repositories.User;
@@ -22,6 +23,8 @@ public static class DependencyInjectionExtension
     {
         public void AddInfrastructure(IConfiguration configuration)
         {
+            services.ConfigureHealthChecks();
+            
             services.AddRepositories();
 
             services.AddSecurity(configuration);
@@ -59,11 +62,15 @@ public static class DependencyInjectionExtension
             services.AddScoped<ITableReader, TableRepository>();
             services.AddScoped<IReservationWriter, ReservationRepository>();
             services.AddScoped<IReservationReader, ReservationRepository>();
+            services.AddScoped<IRefreshTokenWrite, RefreshTokenRepository>();
+            services.AddScoped<IRefreshTokenRead, RefreshTokenRepository>();
         }
 
         private void AddSecurity(IConfiguration configuration)
         {
             services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
+            services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
+            
             services.AddScoped<IAccessTokenGenerator>(provider =>
             {
                 uint tokenExpirationInMinutes =
@@ -78,6 +85,13 @@ public static class DependencyInjectionExtension
                     tokenExpirationInMinutes,
                     secretKey);
             });
+        }
+
+        private void ConfigureHealthChecks()
+        {
+            services
+                .AddHealthChecks()
+                .AddDbContextCheck<TableReserveDbContext>("DbConnection");
         }
     }
 }
