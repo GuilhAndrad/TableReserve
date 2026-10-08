@@ -23,6 +23,7 @@ public class TablesController : ControllerBase
     }
 
     [HttpPost("register")]
+    [Authorize(Roles = "Administrator")]
     [ProducesResponseType(typeof(TableResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status403Forbidden)]
@@ -37,6 +38,7 @@ public class TablesController : ControllerBase
     }
 
     [HttpPatch("{id:guid}")]
+    [Authorize(Roles = "Administrator")]
     [ProducesResponseType(typeof(TableResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status403Forbidden)]

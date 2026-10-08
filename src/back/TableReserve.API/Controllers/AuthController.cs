@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TableReserve.Application.UseCases.Token.RefreshToken;
 using TableReserve.Application.UseCases.User.Login;
 using TableReserve.Communication.Requests;
 using TableReserve.Communication.Responses;
@@ -16,6 +16,18 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login(
         [FromServices] ILoginUser useCase,
         [FromBody] LoginUserRequest request)
+    {
+        var response = await useCase.Execute(request, HttpContext.RequestAborted);
+
+        return Ok(response);
+    }
+
+    [HttpPost("token/refresh")]
+    [ProducesResponseType(typeof(TokensResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> UseRefreshToken(
+    [FromServices] IRefreshTokenUseCase useCase,
+    [FromBody] RefreshTokenRequest request)
     {
         var response = await useCase.Execute(request, HttpContext.RequestAborted);
 
