@@ -1,27 +1,20 @@
 ﻿using Mapster;
 using TableReserve.Communication.Requests;
 using TableReserve.Communication.Responses;
-using TableReserve.Domain.Enums;
 using TableReserve.Domain.Repositories;
 using TableReserve.Domain.Repositories.Table;
-using TableReserve.Domain.Repositories.User;
 using TableReserve.Exception;
 using TableReserve.Exception.ExceptionsBase;
 
 namespace TableReserve.Application.UseCases.Table.UpdateTable;
 
-public class UpdateTable(ILoggedUser loggedUser, ITableReader tableReader, IUnitOfWork unitOfWork) : IUpdateTable
+public class UpdateTable(ITableReader tableReader, IUnitOfWork unitOfWork) : IUpdateTable
 {
-    private readonly ILoggedUser _loggedUser = loggedUser;
     private readonly ITableReader _tableReader = tableReader;
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<TableResponse> Execute(Guid id, UpdateTableRequest request, CancellationToken cancellationToken)
     {
-        var loggedUser = await _loggedUser.Get(cancellationToken);
-        if (loggedUser.Role != UserRole.Administrator)
-            throw new ForbiddenException();
-
         Validate(request);
 
         var table = await _tableReader.GetById(id, cancellationToken)
