@@ -196,6 +196,15 @@ namespace TableReserve.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Refresh token has expired. Please log in again to obtain a new refresh token..
+        /// </summary>
+        public static string REFRESH_TOKEN_EXPIRED {
+            get {
+                return ResourceManager.GetString("REFRESH_TOKEN_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Reservation is already cancelled.
         /// </summary>
         public static string RESERVATION_ALREADY_CANCELLED_VALIDATION {

@@ -204,4 +204,7 @@
   <data name="RESERVATION_DURATION_INVALID_VALIDATION" xml:space="preserve">
     <value>Duration must be between 20 and 120 minutes, in steps of 20 (20, 40, 60, 80, 100, 120)</value>
   </data>
+  <data name="REFRESH_TOKEN_EXPIRED" xml:space="preserve">
+    <value>Refresh token has expired. Please log in again to obtain a new refresh token.</value>
+  </data>
 </root>
